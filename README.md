@@ -7,7 +7,7 @@
 ![Spring Security](https://img.shields.io/badge/Spring%20Security-6.2.2-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-3.9.x-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 
-👩‍💻 **Vaidehi Sharma** | **Roll No:** 23BAI70334 | FullStack Development 2026
+
 
 ---
 
@@ -112,5 +112,5 @@ A secure REST API backend implementing **Role-Based Access Control (RBAC)** usin
 ---
 
 <div align="center">
-Experiment 7 · FullStack Development 2026 · <b>Vaidehi Sharma</b> · 23BAI70334
+
 </div>
