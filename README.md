@@ -1,101 +1,44 @@
----
+# 🔐 Experiment 7 — Role-Based Authorization (RBAC)
+### Secure. Stateless. Role-Aware.
 
-## 👥 Users & Credentials
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.3-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-0.11.5-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6.2.2-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.9.x-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 
-| Username | Password | Role |
-|:---:|:---:|:---:|
-| `admin` | `admin123` | 👑 ADMIN |
-| `vaidehi` | `user123` | 👤 USER |
-
----
-
-## 🛡️ API Endpoints
-
-| Method | Endpoint | Role Required | Description |
-|:---:|:---|:---:|:---|
-| `POST` | `/login` | None | Get JWT token |
-| `POST` | `/logout` | Any | Invalidate token |
-| `GET` | `/admin/dashboard` | 👑 ADMIN only | Admin dashboard |
-| `GET` | `/admin/users` | 👑 ADMIN only | List users |
-| `GET` | `/user/profile` | 👤 USER or ADMIN | User profile |
-| `GET` | `/user/dashboard` | 👤 USER or ADMIN | User dashboard |
+👩‍💻 **Vaidehi Sharma** | **Roll No:** 23BAI70334 | FullStack Development 2026
 
 ---
 
-## 📸 Screenshots
+## 📌 What is this?
 
-### 1️⃣ Admin Login — 200 OK
-![Admin Login](screenshots/1_login_admin_success.png)
-
----
-
-### 2️⃣ Admin Accessing `/admin/dashboard` — 200 OK ✅
-![Admin Dashboard](screenshots/2_admin_dashboard_success.png)
+A secure REST API backend implementing **Role-Based Access Control (RBAC)** using **Spring Boot + Spring Security + JWT**. Users log in with a role (`ADMIN` or `USER`), receive a signed token, and can only access endpoints permitted for their role.
 
 ---
 
-### 3️⃣ User Login — 200 OK
-![User Login](screenshots/3_login_user_success.png)
+## ✨ Features
+
+- 👑 `ADMIN` role — full access including admin-only endpoints
+- 👤 `USER` role — restricted to user-level endpoints only
+- 🔑 Login with username & password → receive signed JWT with role
+- 🛡️ Protected routes enforced by Spring Security role rules
+- 🚪 Logout with token blacklisting (in-memory)
+- ⚡ Stateless — zero server-side sessions
+- 🔒 Custom JWT filter chain with 401 / 403 responses
 
 ---
 
-### 4️⃣ USER Accessing `/user/profile` — 200 OK ✅
-![User Profile](screenshots/4_user_profile_success.png)
+## ⚙️ Tech Stack
+
+| Technology | Version | Role |
+|---|---|---|
+| ☕ Java | 17 | Core language |
+| 🍃 Spring Boot | 3.2.3 | Backend framework |
+| 🔒 Spring Security | 6.2.2 | Security & authorization layer |
+| 🔑 JWT (jjwt) | 0.11.5 | Token generation & validation |
+| 🔧 Maven | 3.9.x | Build tool |
 
 ---
 
-### 5️⃣ USER Denied `/admin/dashboard` — 403 Forbidden ❌
-![User Denied](screenshots/5_user_denied_admin.png)
-
----
-
-### 6️⃣ No Token — 401 Unauthorized ❌
-![No Token](screenshots/6_no_token_401.png)
-
----
-
-### 7️⃣ Wrong Password — 401 Unauthorized ❌
-![Invalid Login](screenshots/7_invalid_login.png)
-
----
-
-## ⚙️ How to Run
-```bash
-git clone https://github.com/vaidehi84/23BAI70334_Exp7.git
-cd 23BAI70334_Exp7
-mvn spring-boot:run
-```
-
-Server runs at: **`http://localhost:8083`**
-
----
-
-## 🧪 Quick Postman Test
-```http
-# 1. Login as admin
-POST http://localhost:8083/login
-{ "username": "admin", "password": "admin123" }
-
-# 2. Access admin route (paste token)
-GET http://localhost:8083/admin/dashboard
-Authorization: Bearer <token>
-
-# 3. Login as user
-POST http://localhost:8083/login
-{ "username": "vaidehi", "password": "user123" }
-
-# 4. User allowed
-GET http://localhost:8083/user/profile
-Authorization: Bearer <user_token>
-
-# 5. User blocked
-GET http://localhost:8083/admin/dashboard
-Authorization: Bearer <user_token>
-→ 403 Forbidden ❌
-```
-
----
-
-<div align="center">
-Made with ❤️ by <b>Vaidehi Sharma</b> | 23BAI70334
-</div>
+## 🗂️ Project Structure
